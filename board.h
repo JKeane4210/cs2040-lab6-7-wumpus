@@ -11,8 +11,10 @@ class Board {
 	Hazard * hazards;
 public:
 	Board();
+	~Board();
 	void createBoard();
 	void displayBoard();
+	Cell* getCell(int h, int w);
 };
 
 #endif
