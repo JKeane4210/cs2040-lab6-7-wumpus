@@ -1,4 +1,8 @@
-#include "cell.h"
+#ifndef BOARD_H_
+#define BOARD_H_
+
+class Cell;
+class Hazard;
 
 class Board {
 	static constexpr int WIDTH = 6;
@@ -10,3 +14,5 @@ public:
 	void createBoard();
 	void displayBoard();
 };
+
+#endif

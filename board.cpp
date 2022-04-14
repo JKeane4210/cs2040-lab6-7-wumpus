@@ -1,13 +1,15 @@
 #include "board.h"
+#include "cell.h"
+#include "hazard.h"
 
 Board::Board() {
 	// TODO
 }
 
-Board::createBoard() {
+void Board::createBoard() {
 	// TODO
 }
 
-Board::displayBoard() {
+void Board::displayBoard() {
 	// TODO
 }

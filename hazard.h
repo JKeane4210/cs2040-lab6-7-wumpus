@@ -1,5 +1,10 @@
-//#include "board.h"
+#ifndef HAZARD_H_
+#define HAZARD_H_
+
 #include <string>
+
+class Board;
+class Player;
 
 class Hazard {
 protected:
@@ -7,7 +12,9 @@ protected:
 	int x, y;
 public:
 	Hazard(Board * board, int x, int y);
-	void attack(Player * player) = 0;
-	char display() = 0;
-	std::string message() = 0;
+	virtual void attack(Player * player) = 0;
+	virtual char display() = 0;
+	virtual std::string message() = 0;
 };
+
+#endif
