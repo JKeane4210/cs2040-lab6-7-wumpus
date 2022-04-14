@@ -1,4 +1,7 @@
-#include "hazard.h"
+#ifndef CELL_H_
+#define CELL_H_
+
+class Hazard;
 
 class Cell {
 	int x, y;
@@ -11,3 +14,5 @@ public:
 	void leavePlayer();
 	void leaveHazard();
 };
+
+#endif

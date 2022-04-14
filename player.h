@@ -1,4 +1,7 @@
-#include "board.h"
+#ifndef PLAYER_H_
+#define PLAYER_H_
+
+class Board;
 
 class Player {
 	int x, y;
@@ -9,3 +12,5 @@ public:
 	void move(char direction);
 	void shoot();
 };
+
+#endif

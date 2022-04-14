@@ -1,4 +1,6 @@
 #include "board.h"
+#include "cell.h"
+#include "hazard.h"
 
 Board::Board() {
 	for(int i = 0; i < HEIGHT; i++){

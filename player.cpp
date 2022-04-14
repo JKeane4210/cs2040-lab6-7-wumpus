@@ -1,4 +1,5 @@
-# include "player.h"
+#include "player.h"
+#include "board.h"
 
 Player::Player(Board * board) {
 	// TODO
