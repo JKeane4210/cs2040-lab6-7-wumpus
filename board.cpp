@@ -1,13 +1,17 @@
 #include "board.h"
 
 Board::Board() {
+	for(int i = 0; i < HEIGHT; i++){
+		for(int k = 0; i < WIDTH; k++){
+			this->grid[i][k] = new Cell(i, k);
+		}
+	}
+}
+
+void Board::createBoard() {
 	// TODO
 }
 
-Board::createBoard() {
-	// TODO
-}
-
-Board::displayBoard() {
+void Board::displayBoard() {
 	// TODO
 }

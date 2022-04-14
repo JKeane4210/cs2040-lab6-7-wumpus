@@ -5,8 +5,9 @@ class Cell {
 	bool hasPlayer, hasHazard;
 	Hazard * hazard;
 public:
-	Cell();
+	Cell(int x, int y);
 	void insertPlayer();
 	void insertHazard(Hazard h);
-	
+	void leavePlayer();
+	void leaveHazard();
 };
