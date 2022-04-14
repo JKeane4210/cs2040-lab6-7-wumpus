@@ -1,4 +1,4 @@
-#include <board.h>
+#include "board.h"
 
 class Hazard {
 	Board * board;

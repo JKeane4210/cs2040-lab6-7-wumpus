@@ -1,4 +1,4 @@
-#include <cell.h>
+#include "cell.h"
 
 class Board {
 	static constexpr int WIDTH = 6;
