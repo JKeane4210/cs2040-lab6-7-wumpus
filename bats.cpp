@@ -1,13 +1,15 @@
 #include "bats.h"
 
-void Wumpus::attack(Player * player) override {
-	// player->is_dead = true;
+Bats::Bats(Board * board, int x, int y, int delta_x, int delta_y) : Hazard(board, x, y), delta_x{delta_x}, delta_y{delta_y} {}
+
+void Bars::attack(Player * player) override {
+	// player->move(delta_x, delta_x);
 }
 
 char Wumpus::display() override {
-	return '!';
+	return 'B';
 }
 
 std::string Wumpus::message() override {
-	return "You can smell the wumpus";
+	return "I can hear flapping.";
 }
