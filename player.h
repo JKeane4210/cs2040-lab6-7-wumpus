@@ -8,4 +8,4 @@ public:
 	Player(Board * board);
 	void move(char direction);
 	void shoot();
-}
+};

@@ -7,4 +7,6 @@ class Board {
 	Hazard * hazards;
 public:
 	Board();
+	void createBoard();
+	void displayBoard();
 };
