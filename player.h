@@ -8,9 +8,11 @@ class Player {
 	int arrows;
 	bool isDead;
 	Board * board;
+	bool checkCurrentPosition(int x, int y);
+	void checkNeighbors(int x, int y);
 public:
 	Player(Board * board);
-	void move(char direction);
+	bool move(char direction);
 	void shoot();
 };
 
