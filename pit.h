@@ -9,9 +9,9 @@ class Board;
 class Pit : Hazard {
 public:
 	Pit(Board * board, int x, int y);
-	void attack(Player * player) = 0;
-	char display() = 0;
-	std::string message() = 0;
+	void attack(Player * player);
+	char display();
+	std::string message();
 };
 
 #endif
