@@ -20,9 +20,7 @@ bool Player::move(char direction) {
 		y += 1;
 	} else if (move == 'w') {
 		x -= 1;
-	} else {
-		// invalid move
-	}
+	} 
 	ret = checkCurrentPosition(x, y);
 	if (ret){
 		checkNeighbors(x, y);
@@ -30,7 +28,7 @@ bool Player::move(char direction) {
 	return ret;
 }
 
-void Player::shoot() {
+void Player::shoot(char direction) {
 	// see what direction they want to move
 	// get cell based on direction
 	// get cell token

@@ -2,6 +2,7 @@
 #include <cstdio> 
 #include <string>
 #include "board.h"
+#include "player.h"
 
 using namespace std;
 
@@ -61,16 +62,15 @@ char getAction(){
 	return action;
 }
 
-bool performAction(char action){
+bool performAction(char action, Player *player){
 	bool ret = true;
 	if (action == 'n' || action == 's' || action == 'e' || action == 'w'){
-		// player move (action)
-		// ret = true 	-> if move was valid
-		// ret = false	-> if player dead
+		ret = player->move(action);
 	} else if(action == 'a'){
-		// player shoot
-		// ret = false 	-> if player shot wumpus 
-		// ret = true 	-> if player miss wumpus 
+		char direction;
+		cout << "Which direciton you shootin' dawg? ";
+		cin >> direction;
+		player->shoot(direction);
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
 	} else if (action == 'q'){
@@ -79,15 +79,31 @@ bool performAction(char action){
 	return ret;
 }
 
+bool debugMode(){
+	string input;
+	bool ret = false;
+	cout << "Debug mode? Yes or No (y/n): ";
+	cin >> input;
+	cout << endl;
+	if (input == "y"){
+		ret = true;
+	}
+	return ret;
+}
+
 int main() {
 	Board board = Board();
 	board.createBoard();
-	board.displayBoard();
+	Player *player = board.getPlayer();
+	bool debug = debugMode();
 	intro();
 	bool flag = true;
 	while (flag){
+		if(debug){
+			board.displayBoard();
+		}
 		char action = getAction();
-		flag = performAction(action);
+		flag = performAction(action, player);
 	}
 	return 0;
 }
