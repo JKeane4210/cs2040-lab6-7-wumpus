@@ -6,7 +6,7 @@
 
 class Board;
 
-class Pit : Hazard {
+class Pit : public Hazard {
 public:
 	Pit(Board * board, int x, int y);
 	void attack(Player * player);
