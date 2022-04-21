@@ -13,7 +13,7 @@ class Player {
 public:
 	Player(Board * board);
 	bool move(char direction);
-	void shoot();
+	void shoot(char direction);
 };
 
 #endif
