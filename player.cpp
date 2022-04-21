@@ -89,6 +89,8 @@ bool Player::checkCurrentPosition(int x, int y) {
 	bool ret = true;
 	if (currentPCell->isOccupied()) {
 		if (currentPCell->containsArrow()) {
+			currentPCell->grabArrow();
+			arrows++;
 			std::cout << "You picked up an arrow" << std::endl;
 		} else {
 			Hazard * hazard = currentPCell->getHazard();
