@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdio> 
 #include <string>
+#include "board.h"
 
 using namespace std;
 
@@ -79,6 +80,9 @@ bool performAction(char action){
 }
 
 int main() {
+	Board board = Board();
+	board.createBoard();
+	board.displayBoard();
 	intro();
 	bool flag = true;
 	while (flag){

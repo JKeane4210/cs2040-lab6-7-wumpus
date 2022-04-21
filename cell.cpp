@@ -40,10 +40,12 @@ void Cell::leaveHazard(){
 
 void Cell::insertArrow(){
 	this->hasArrow = true;
+	this->token = '-';
 }
 
 void Cell::grabArrow(){
 	this->hasArrow = false;
+	this->token = '.';
 }
 
 bool Cell::isOccupied(){
