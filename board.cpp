@@ -67,11 +67,11 @@ void Board::createBoard() {
 		h = rand()%HEIGHT;
 		w = rand()%WIDTH;
 	} while(this->grid[h][w]->isOccupied());
-	//this->player = new Player(this);
-	Player * player = new Player(this);
+	this->player = new Player(this);
+	//Player * player = new Player(this);
 	this->playerX = w;
 	this->playerY = h;
-	this->grid[h][w]->insertPlayer(player);
+	this->grid[h][w]->insertPlayer(this->player);
 }
 
 void Board::displayBoard() {
@@ -84,6 +84,10 @@ void Board::displayBoard() {
 			}
 		}
 	}
+}
+
+Player* Board::getPlayer(){
+	return this->player;
 }
 
 Cell* Board::getCell(int h, int w) {

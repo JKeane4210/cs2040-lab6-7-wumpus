@@ -20,6 +20,7 @@ public:
 	~Board();
 	void createBoard();
 	void displayBoard();
+	Player* getPlayer();
 	Cell* getCell(int h, int w);
 };
 
