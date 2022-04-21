@@ -72,7 +72,7 @@ bool performAction(char action){
 		// ret = false 	-> if player shot wumpus 
 		// ret = true 	-> if player miss wumpus 
 	} else if (action == 'h'){
-		// intro on how to play
+		cout << how_to_play() << endl;
 	} else if (action == 'q'){
 		return false;
 	}
