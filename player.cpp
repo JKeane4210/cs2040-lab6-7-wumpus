@@ -1,5 +1,7 @@
 #include "player.h"
 #include "board.h"
+#include "cell.h"
+#include "hazard.h"
 #include <string>
 #include <iostream>
 
@@ -13,17 +15,40 @@ bool Player::move(char direction) {
 	char move = tolower(direction);
 	bool ret = true;
 	if (move == 'n') {
-		y -= 1;
+		std::cout << "hi" << std::endl;
+		ret = setLocation(x, y - 1);
+
 	} else if (move == 'e') {
-		x += 1;
+		ret = setLocation(x + 1, y);
 	} else if (move == 's') {
-		y += 1;
+		ret = setLocation(x, y + 1);
 	} else if (move == 'w') {
-		x -= 1;
+		ret = setLocation(x - 1, y);
 	} 
-	ret = checkCurrentPosition(x, y);
-	if (ret){
+
+	return ret;
+}
+
+bool Player::setLocation(int x, int y) {
+		std::cout << "hi" << std::endl;
+
+	board->getCell(this->x, this->y)->leavePlayer();
+		std::cout << "hi" << std::endl;
+
+	this->x = x;
+	this->y = y;
+		std::cout << this->x << this->y << std::endl;
+
+	board->getCell(this->x, this->y)->insertPlayer(this);
+		std::cout << "hi" << std::endl;
+
+	bool ret = checkCurrentPosition(x, y);
+	if (ret) {
+		std::cout << "hi" << std::endl;
+
 		checkNeighbors(x, y);
+		std::cout << "hi" << std::endl;
+
 	}
 	return ret;
 }
@@ -44,11 +69,11 @@ bool Player::checkCurrentPosition(int x, int y) {
 	Cell *currentPCell = board->getCell(x, y);
 	bool ret = true;
 	if (currentPCell->isOccupied()) {
-		if (currentPCell->hasArrow()) {
-			cout << "You picked up an arrow" << endl;
+		if (currentPCell->containsArrow()) {
+			std::cout << "You picked up an arrow" << std::endl;
 		} else {
 			Hazard * hazard = currentPCell->getHazard();
-			ret = hazard->attack();
+			ret = hazard->attack(this);
 		}
 	}
 	return ret;
@@ -56,13 +81,13 @@ bool Player::checkCurrentPosition(int x, int y) {
 
 void Player::checkNeighbors(int x, int y){
 	for (int delta_x = -1; delta_x <= 1; ++delta_x) {
-		for (int delta_y = -1; j <= 1; ++delta_y) {
+		for (int delta_y = -1; delta_y <= 1; ++delta_y) {
 			if (delta_x != 0 || delta_y != 0) {
 				Cell * curr_cell = board->getCell(x + delta_x, y + delta_y);
 				if (curr_cell != nullptr) {
 					Hazard * hazard = curr_cell->getHazard();
 					if (hazard != nullptr) {
-						cout << hazard->message() << endl;
+						std::cout << hazard->message() << std::endl;
 					}
 				}
 			}

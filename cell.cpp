@@ -60,6 +60,6 @@ Hazard * Cell::getHazard() {
 	return this->hazard;
 }
 
-bool Cell::hasHazard() {
-	return this->hasHazard;
+bool Cell::containsArrow() {
+	return this->hasArrow;
 }

@@ -5,8 +5,8 @@
 
 Pit::Pit(Board * board, int x, int y) : Hazard(board, x, y) {}
 
-void Pit::attack(Player * player) {
-	cout << "You fell down a pit. The wumpus comes to eat you." << endl;
+bool Pit::attack(Player * player) {
+	std::cout << "You fell down a pit. The wumpus comes to eat you." << std::endl;
 	return false;
 }
 

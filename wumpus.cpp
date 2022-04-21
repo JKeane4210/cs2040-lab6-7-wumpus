@@ -5,7 +5,7 @@
 Wumpus::Wumpus(Board * board, int x, int y) : Hazard(board, x, y) {}
 
 bool Wumpus::attack(Player * player) {
-	cout << "You were eaten by a wumpus" << endl;
+	std::cout << "You were eaten by a wumpus" << std::endl;
 	return false;
 }
 

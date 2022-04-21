@@ -23,7 +23,7 @@ public:
 	bool isOccupied();
 	char getToken();
 	Hazard * getHazard();
-	bool hasArrow();
+	bool containsArrow();
 };
 
 #endif
