@@ -9,6 +9,11 @@ Player::Player(Board * board) {
 	// set x and y position from board
 	isDead = false;
 	Player::board = board;
+	arrows = STARTING_ARROWS;
+}
+
+int Player::getArrows(){
+	return arrows;
 }
 
 bool Player::move(char direction) {
@@ -39,16 +44,44 @@ bool Player::setLocation(int x, int y) {
 	return ret;
 }
 
-void Player::shoot(char direction) {
-	// see what direction they want to move
-	// get cell based on direction
-	// get cell token
-		// if cell token is wumpus
-			// return true
-			// "You shot the wumpus!"
-		// else
-			// return false
-			// "You missed!"
+bool Player::shoot(char direction) {
+	bool ret = true;
+	arrows -= 1;
+	if(direction == 'n'){
+		if(board->getCell(x - 1, y)->getToken() == '!'){
+			ret = hitWumpus();
+		} else{
+			missWumpus();
+		}
+	} else if (direction == 'e'){
+		if(board->getCell(x, y + 1)->getToken() == '!'){
+			ret = hitWumpus();
+		} else{
+			missWumpus();
+		}
+	} else if (direction == 's'){
+		if(board->getCell(x + 1, y)->getToken() == '!'){
+			ret = hitWumpus();
+		} else{
+			missWumpus();
+		}
+	} else if (direction == 'w'){
+		if(board->getCell(x, y - 1)->getToken() == '!'){
+			ret = hitWumpus();
+		} else{
+			missWumpus();
+		}
+	}
+	return ret;
+}
+
+bool Player::hitWumpus(){
+	std::cout << "You got the Wumpus!" << std::endl;
+	return false;
+}
+
+void Player::missWumpus(){
+	std::cout << "You missed!" << std::endl;
 }
 
 bool Player::checkCurrentPosition(int x, int y) {

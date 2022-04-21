@@ -67,10 +67,14 @@ bool performAction(char action, Player *player){
 	if (action == 'n' || action == 's' || action == 'e' || action == 'w'){
 		ret = player->move(action);
 	} else if(action == 'a'){
-		char direction;
-		cout << "Which direciton you shootin' dawg? ";
-		cin >> direction;
-		player->shoot(direction);
+		if (player->getArrows() != 0){
+			char direction;
+			cout << "Which direciton you shootin' dawg? ";
+			cin >> direction;
+			ret = player->shoot(direction);
+		} else{
+			cout << "Out of arrows!";
+		}
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
 	} else if (action == 'q'){
