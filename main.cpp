@@ -22,7 +22,7 @@ string how_to_play() {
 		   "\t\t- - = arrow\n" 
 		   "\t\t- P = player\n" 
 		   "\t\t- B = bats\n"
-		   "\t\t- @ = hazard\n" 
+		   "\t\t- @ = pit\n" 
 		   "\t\t- ? = treasure\n" 
 		   "\t\t- ! = monster\n";
 }
