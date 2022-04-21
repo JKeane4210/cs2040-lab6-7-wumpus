@@ -33,6 +33,7 @@ Board::~Board() {
 
 // Populates the board
 void Board::createBoard() {
+	srand(time(NULL));
 	int h = rand()%HEIGHT;
 	int w = rand()%WIDTH;
 	Wumpus * wumpus = new Wumpus(this, w, h);
