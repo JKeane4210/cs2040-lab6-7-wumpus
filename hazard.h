@@ -12,7 +12,7 @@ protected:
 	int x, y;
 public:
 	Hazard(Board * board, int x, int y);
-	virtual void attack(Player * player) = 0;
+	virtual bool attack(Player * player) = 0;
 	virtual char display() = 0;
 	virtual std::string message() = 0;
 };

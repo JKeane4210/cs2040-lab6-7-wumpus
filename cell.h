@@ -22,6 +22,8 @@ public:
 	void grabArrow();
 	bool isOccupied();
 	char getToken();
+	Hazard * getHazard();
+	bool hasArrow();
 };
 
 #endif

@@ -9,7 +9,7 @@ class Board;
 class Pit : public Hazard {
 public:
 	Pit(Board * board, int x, int y);
-	void attack(Player * player);
+	bool attack(Player * player);
 	char display();
 	std::string message();
 };

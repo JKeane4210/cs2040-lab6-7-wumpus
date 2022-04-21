@@ -1,6 +1,7 @@
 #include "player.h"
 #include "board.h"
-#include "string"
+#include <string>
+#include <iostream>
 
 Player::Player(Board * board) {
 	// set x and y position from board
@@ -44,24 +45,29 @@ void Player::shoot() {
 bool Player::checkCurrentPosition(int x, int y) {
 	Cell *currentPCell = board->getCell(x, y);
 	bool ret = true;
-	// if arrow
-		// arrows += 1;
-	// if bat
-		// move player to random open position
-	// if pit
-		// "You fell into a pit."
-		// ret = false;
-	// if wumpus
-		// "You were eaten by a wumpus."
-		// ret = false;
+	if (currentPCell->isOccupied()) {
+		if (currentPCell->hasArrow()) {
+			cout << "You picked up an arrow" << endl;
+		} else {
+			Hazard * hazard = currentPCell->getHazard();
+			ret = hazard->attack();
+		}
+	}
 	return ret;
 }
 
 void Player::checkNeighbors(int x, int y){
-	// if bat
-		// bat message
-	// if pit
-		// pit message
-	// if wumpus
-		// wumpus message
+	for (int delta_x = -1; delta_x <= 1; ++delta_x) {
+		for (int delta_y = -1; j <= 1; ++delta_y) {
+			if (delta_x != 0 || delta_y != 0) {
+				Cell * curr_cell = board->getCell(x + delta_x, y + delta_y);
+				if (curr_cell != nullptr) {
+					Hazard * hazard = curr_cell->getHazard();
+					if (hazard != nullptr) {
+						cout << hazard->message() << endl;
+					}
+				}
+			}
+		}
+	}
 }

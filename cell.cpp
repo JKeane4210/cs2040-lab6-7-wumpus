@@ -55,3 +55,11 @@ bool Cell::isOccupied(){
 char Cell::getToken(){
 	return this->token;
 }
+
+Hazard * Cell::getHazard() {
+	return this->hazard;
+}
+
+bool Cell::hasHazard() {
+	return this->hasHazard;
+}

@@ -1,10 +1,12 @@
 #include "wumpus.h"
 #include "hazard.h"
+#include <iostream>
 
 Wumpus::Wumpus(Board * board, int x, int y) : Hazard(board, x, y) {}
 
-void Wumpus::attack(Player * player) {
-	// player->is_dead = true;
+bool Wumpus::attack(Player * player) {
+	cout << "You were eaten by a wumpus" << endl;
+	return false;
 }
 
 char Wumpus::display() {
