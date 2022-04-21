@@ -30,25 +30,13 @@ bool Player::move(char direction) {
 }
 
 bool Player::setLocation(int x, int y) {
-		std::cout << "hi" << std::endl;
-
 	board->getCell(this->x, this->y)->leavePlayer();
-		std::cout << "hi" << std::endl;
-
 	this->x = x;
 	this->y = y;
-		std::cout << this->x << this->y << std::endl;
-
-	board->getCell(this->x, this->y)->insertPlayer(this);
-		std::cout << "hi" << std::endl;
-
+	board->getCell(this->x, this->y)->insertPlayer(this); // TODO: problems here (probably connected to problems elsewhere)
 	bool ret = checkCurrentPosition(x, y);
 	if (ret) {
-		std::cout << "hi" << std::endl;
-
 		checkNeighbors(x, y);
-		std::cout << "hi" << std::endl;
-
 	}
 	return ret;
 }
