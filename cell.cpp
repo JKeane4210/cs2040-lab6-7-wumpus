@@ -1,6 +1,7 @@
 #include "cell.h"
 #include "hazard.h"
 #include "board.h"
+#include "player.h"
 
 Cell::Cell(Board * b, int x, int y) : x{x}, y{y} {
 	this->board = b;
@@ -15,7 +16,6 @@ Cell::Cell(Board * b, int x, int y) : x{x}, y{y} {
 void Cell::insertPlayer(Player * p){
 	this->hasPlayer = true;
 	this->player = p;
-	this->token = 'P';
 	this->board->playerX = this->x;
 	this->board->playerY = this->y;
 }
@@ -29,7 +29,6 @@ void Cell::insertHazard(Hazard * h){
 void Cell::leavePlayer(){
 	this->hasPlayer = false;
 	this->player = nullptr;
-	this->token = '.';
 }
 
 void Cell::leaveHazard(){
@@ -53,7 +52,7 @@ bool Cell::isOccupied(){
 }
 
 char Cell::getToken(){
-	return this->token;
+	return hasPlayer ? 'P' : this->token;
 }
 
 Hazard * Cell::getHazard() {

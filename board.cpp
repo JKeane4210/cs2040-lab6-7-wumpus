@@ -68,10 +68,9 @@ void Board::createBoard() {
 		w = rand()%WIDTH;
 	} while(this->grid[h][w]->isOccupied());
 	this->player = new Player(this);
-	//Player * player = new Player(this);
 	this->playerX = w;
 	this->playerY = h;
-	this->grid[h][w]->insertPlayer(this->player);
+	this->player->setLocation(w, h);
 }
 
 void Board::displayBoard() {

@@ -15,15 +15,13 @@ bool Player::move(char direction) {
 	char move = tolower(direction);
 	bool ret = true;
 	if (move == 'n') {
-		std::cout << "hi" << std::endl;
-		ret = setLocation(x, y - 1);
-
-	} else if (move == 'e') {
-		ret = setLocation(x + 1, y);
-	} else if (move == 's') {
-		ret = setLocation(x, y + 1);
-	} else if (move == 'w') {
 		ret = setLocation(x - 1, y);
+	} else if (move == 'e') {
+		ret = setLocation(x, y + 1);
+	} else if (move == 's') {
+		ret = setLocation(x + 1, y);
+	} else if (move == 'w') {
+		ret = setLocation(x, y - 1);
 	} 
 
 	return ret;
@@ -33,7 +31,7 @@ bool Player::setLocation(int x, int y) {
 	board->getCell(this->x, this->y)->leavePlayer();
 	this->x = x;
 	this->y = y;
-	board->getCell(this->x, this->y)->insertPlayer(this); // TODO: problems here (probably connected to problems elsewhere)
+	board->getCell(this->x, this->y)->insertPlayer(this);
 	bool ret = checkCurrentPosition(x, y);
 	if (ret) {
 		checkNeighbors(x, y);
