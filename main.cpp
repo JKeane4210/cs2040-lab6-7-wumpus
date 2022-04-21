@@ -79,13 +79,29 @@ bool performAction(char action, Player *player){
 	return ret;
 }
 
+bool debugMode(){
+	string input;
+	bool ret = false;
+	cout << "Debug mode? Yes or No (y/n): ";
+	cin >> input;
+	cout << endl;
+	if (input == "y"){
+		ret = true;
+	}
+	return ret;
+}
+
 int main() {
 	Board board = Board();
 	board.createBoard();
 	Player *player = board.getPlayer();
+	bool debug = debugMode();
 	intro();
 	bool flag = true;
 	while (flag){
+		if(debug){
+			board.displayBoard();
+		}
 		char action = getAction();
 		flag = performAction(action, player);
 	}
