@@ -13,10 +13,15 @@ char getAction(){
 	char action;
 	while(flag){
 		cout << "Action: N)orth, S)outh, E)ast, W)est, shoot A)rrow, H)elp, Q)uit: ";
-		cin >> action;
+		try {
+			cin >> action;
+			action = tolower(action);
 		if (action == 'n' || action == 's' || action == 'e' || action == 'w' || action == 'a' || action == 'h' || action == 'q'){
 			flag = false;
 		} else{
+			cout << "Invalid action!" << endl;
+		}
+		} catch (const exception& e){
 			cout << "Invalid action!" << endl;
 		}
 	}
