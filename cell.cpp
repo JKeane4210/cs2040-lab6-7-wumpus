@@ -1,5 +1,6 @@
 #include "cell.h"
 #include "hazard.h"
+#include "board.h"
 
 Cell::Cell(Board * b, int x, int y) : x{x}, y{y} {
 	this->board = b;

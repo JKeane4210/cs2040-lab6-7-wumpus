@@ -3,6 +3,7 @@
 
 class Cell;
 class Hazard;
+class Player;
 
 class Board {
 	static constexpr int WIDTH = 6;

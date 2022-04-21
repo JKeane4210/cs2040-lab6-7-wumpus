@@ -4,6 +4,7 @@
 #include "wumpus.h"
 #include "bats.h"
 #include "pit.h"
+#include "player.h"
 
 #include <iostream>
 #include <cstdlib>
