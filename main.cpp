@@ -30,21 +30,31 @@ void intro(){
 	cout << "Welcome to Wumpus Hunt. Find us a Wumpus!" << endl;
 }
 
+void invalidAction(){
+	cout << "Invalid action!" << endl;
+}
+
 char getAction(){
 	bool flag = true;
+	string input;
 	char action;
 	while(flag){
 		cout << "Action: N)orth, S)outh, E)ast, W)est, shoot A)rrow, H)elp, Q)uit: ";
 		try {
-			cin >> action;
-			action = tolower(action);
-		if (action == 'n' || action == 's' || action == 'e' || action == 'w' || action == 'a' || action == 'h' || action == 'q'){
-			flag = false;
-		} else{
-			cout << "Invalid action!" << endl;
-		}
+			cin >> input;
+			if (input.length() == 1){
+				action = input[0];
+				action = tolower(action);
+				if (action == 'n' || action == 's' || action == 'e' || action == 'w' || action == 'a' || action == 'h' || action == 'q'){
+					flag = false;
+				} else{
+					invalidAction();
+				}
+			} else{
+				invalidAction();
+			}
 		} catch (const exception& e){
-			cout << "Invalid action!" << endl;
+			invalidAction();
 		}
 	}
 	return action;
