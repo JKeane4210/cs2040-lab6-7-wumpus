@@ -23,8 +23,7 @@ string how_to_play() {
 		   "\t\t- B = bats\n"
 		   "\t\t- @ = hazard\n" 
 		   "\t\t- ? = treasure\n" 
-		   "\t\t- ! = monster\n\n" 
-		   "Press X to exit help menu";
+		   "\t\t- ! = monster\n";
 }
 
 void intro(){
