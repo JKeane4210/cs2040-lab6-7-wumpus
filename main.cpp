@@ -109,7 +109,7 @@ int main() {
 	Board board = Board();
 	board.createBoard();
 	Player *player = board.getPlayer();
-	board.displayBoard();
+	board.displayPlayer();
 	intro();
 	bool flag = true;
 	bool debug = false;
