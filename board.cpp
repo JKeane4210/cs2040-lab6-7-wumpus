@@ -85,6 +85,26 @@ void Board::displayBoard() {
 	}
 }
 
+void Board::displayPlayer() {
+	for(int i = 0; i < HEIGHT; i++){
+		for(int k = 0; k < WIDTH; k++){
+			if(k != WIDTH - 1){
+				if(this->grid[i][k]->getToken() == 'P'){
+					cout << this->grid[i][k]->getToken() << " ";
+				} else{
+					cout << '.' << " ";
+				}
+			} else{
+				if(this->grid[i][k]->getToken() =='P'){
+					cout << this->grid[i][k]->getToken() << endl;
+				} else{
+					cout << '.' << endl;
+				}
+			}
+		}
+	}
+}
+
 Player* Board::getPlayer(){
 	return this->player;
 }

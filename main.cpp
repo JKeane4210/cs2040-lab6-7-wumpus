@@ -98,7 +98,7 @@ bool performAction(char action, Player *player, Board &board){
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
 	} else if (action == 'm'){
-			board.displayBoard();
+			board.displayPlayer();
 	} else if (action == 'q'){
 		return false;
 	}
