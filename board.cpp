@@ -70,7 +70,7 @@ void Board::createBoard() {
 	this->player = new Player(this);
 	this->playerX = w;
 	this->playerY = h;
-	this->player->setLocation(w, h);
+	this->player->setLocation(h, w);
 }
 
 void Board::displayBoard() {
