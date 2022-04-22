@@ -67,7 +67,7 @@ char getAction(){
 	return action;
 }
 
-bool performAction(char action, Player *player){
+bool performAction(char action, Player *player, Board board){
 	bool ret = true;
 	if (action == 'n' || action == 's' || action == 'e' || action == 'w'){
 		ret = player->move(action);
@@ -97,6 +97,8 @@ bool performAction(char action, Player *player){
 		}
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
+	} else if (action == 'm'){
+			board.displayBoard();
 	} else if (action == 'q'){
 		return false;
 	}
@@ -115,13 +117,11 @@ int main() {
 			board.displayBoard();
 		}
 		char action = getAction();
-		if (action == 'm'){
-			board.displayBoard();
-		}
 		if (action == 'd'){
 			debug = true;
+		} else{
+			flag = performAction(action, player, board);
 		}
-		flag = performAction(action, player);
 	}
 	return 0;
 }
