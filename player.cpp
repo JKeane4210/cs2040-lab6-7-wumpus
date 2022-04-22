@@ -20,16 +20,35 @@ bool Player::move(char direction) {
 	char move = tolower(direction);
 	bool ret = true;
 	if (move == 'n') {
-		ret = setLocation(x - 1, y);
+		if(x - 1 >= 0){
+			ret = setLocation(x - 1, y);
+		} else{
+			moveOutOfBounds();
+		}
 	} else if (move == 'e') {
-		ret = setLocation(x, y + 1);
+		if (y + 1 < board->getBoardHeight()){
+			ret = setLocation(x, y + 1);
+		} else{
+			moveOutOfBounds();
+		}
 	} else if (move == 's') {
-		ret = setLocation(x + 1, y);
+		if (x + 1 < board->getBoardWidth()){
+			ret = setLocation(x + 1, y);
+		} else{
+			moveOutOfBounds();
+		}
 	} else if (move == 'w') {
-		ret = setLocation(x, y - 1);
+		if (y - 1 >= 0){
+			ret = setLocation(x, y - 1);
+		} else{
+			moveOutOfBounds();
+		}
 	} 
-
 	return ret;
+}
+
+void Player::moveOutOfBounds(){
+	std::cout << "You cannot move off the board." << std::endl;
 }
 
 bool Player::setLocation(int x, int y) {

@@ -6,6 +6,8 @@
 
 using namespace std;
 
+bool debug = false;
+
 string how_to_play() {
 	return "How to Play:\n"
 		   "\tCommands:\n"
@@ -45,13 +47,13 @@ char getAction(){
 	string input;
 	char action;
 	while(flag){
-		cout << "Action: N)orth, S)outh, E)ast, W)est, shoot A)rrow, H)elp, Q)uit: ";
+		cout << "Action: N)orth, S)outh, E)ast, W)est, shoot A)rrow, H)elp, D)ebug, Q)uit: ";
 		try {
 			cin >> input;
 			if (input.length() == 1){
 				action = input[0];
 				action = tolower(action);
-				if (action == 'n' || action == 's' || action == 'e' || action == 'w' || action == 'a' || action == 'h' || action == 'q'){
+				if (action == 'n' || action == 's' || action == 'e' || action == 'w' || action == 'a' || action == 'h' || action == 'd' || action == 'q'){
 					flag = false;
 				} else{
 					invalidAction();
@@ -96,20 +98,10 @@ bool performAction(char action, Player *player){
 		}
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
+	} else if (action == 'd'){
+		debug = true;
 	} else if (action == 'q'){
 		return false;
-	}
-	return ret;
-}
-
-bool debugMode(){
-	string input;
-	bool ret = false;
-	cout << "Debug mode? Yes or No (y/n): ";
-	cin >> input;
-	cout << endl;
-	if (input == "y"){
-		ret = true;
 	}
 	return ret;
 }
@@ -118,7 +110,6 @@ int main() {
 	Board board = Board();
 	board.createBoard();
 	Player *player = board.getPlayer();
-	bool debug = debugMode();
 	intro();
 	bool flag = true;
 	while (flag){

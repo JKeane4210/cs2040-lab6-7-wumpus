@@ -14,6 +14,7 @@ class Player {
 	bool hitWumpus();
 	void missWumpus();
 	void shootOutOfBounds();
+	void moveOutOfBounds();
 public:
 	Player(Board * board);
 	bool move(char direction);

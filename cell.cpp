@@ -44,7 +44,7 @@ void Cell::insertArrow(){
 
 void Cell::grabArrow(){
 	this->hasArrow = false;
-	this->token = 'P';
+	this->token = '.';
 }
 
 bool Cell::isOccupied(){
