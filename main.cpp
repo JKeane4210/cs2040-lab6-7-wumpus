@@ -67,7 +67,7 @@ char getAction(){
 	return action;
 }
 
-bool performAction(char action, Player *player, Board board){
+bool performAction(char action, Player *player, Board &board){
 	bool ret = true;
 	if (action == 'n' || action == 's' || action == 'e' || action == 'w'){
 		ret = player->move(action);
@@ -109,6 +109,7 @@ int main() {
 	Board board = Board();
 	board.createBoard();
 	Player *player = board.getPlayer();
+	board.displayBoard();
 	intro();
 	bool flag = true;
 	bool debug = false;
@@ -119,9 +120,8 @@ int main() {
 		char action = getAction();
 		if (action == 'd'){
 			debug = true;
-		} else{
-			flag = performAction(action, player, board);
 		}
+		flag = performAction(action, player, board);
 	}
 	return 0;
 }
