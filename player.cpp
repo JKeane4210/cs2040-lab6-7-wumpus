@@ -48,28 +48,44 @@ bool Player::shoot(char direction) {
 	bool ret = true;
 	arrows -= 1;
 	if(direction == 'n'){
-		if(board->getCell(x - 1, y)->getToken() == '!'){
-			ret = hitWumpus();
+		if(x - 1 >= 0){
+			if(board->getCell(x - 1, y)->getToken() == '!'){
+				ret = hitWumpus();
+			} else{
+				missWumpus();
+			}
 		} else{
-			missWumpus();
+			shootOutOfBounds();
 		}
 	} else if (direction == 'e'){
-		if(board->getCell(x, y + 1)->getToken() == '!'){
-			ret = hitWumpus();
+		if (y + 1 < board->getBoardHeight()){
+			if(board->getCell(x, y + 1)->getToken() == '!'){
+				ret = hitWumpus();
+			} else{
+				missWumpus();
+			}
 		} else{
-			missWumpus();
+			shootOutOfBounds();
 		}
 	} else if (direction == 's'){
-		if(board->getCell(x + 1, y)->getToken() == '!'){
-			ret = hitWumpus();
+		if (x + 1 < board->getBoardWidth()){
+			if(board->getCell(x + 1, y)->getToken() == '!'){
+				ret = hitWumpus();
+			} else{
+				missWumpus();
+			}
 		} else{
-			missWumpus();
+			shootOutOfBounds();
 		}
 	} else if (direction == 'w'){
-		if(board->getCell(x, y - 1)->getToken() == '!'){
-			ret = hitWumpus();
+		if (y - 1 >= 0){
+			if(board->getCell(x, y - 1)->getToken() == '!'){
+				ret = hitWumpus();
+			} else{
+				missWumpus();
+			}
 		} else{
-			missWumpus();
+			shootOutOfBounds();
 		}
 	}
 	return ret;
@@ -82,6 +98,10 @@ bool Player::hitWumpus(){
 
 void Player::missWumpus(){
 	std::cout << "You missed!" << std::endl;
+}
+
+void Player::shootOutOfBounds(){
+	std::cout << "You shot out of bounds" << std::endl;
 }
 
 bool Player::checkCurrentPosition(int x, int y) {

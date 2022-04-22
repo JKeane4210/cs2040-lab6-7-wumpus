@@ -22,6 +22,8 @@ public:
 	void displayBoard();
 	Player* getPlayer();
 	Cell* getCell(int h, int w);
+	int getBoardWidth();
+	int getBoardHeight();
 };
 
 #endif

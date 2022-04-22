@@ -13,6 +13,7 @@ class Player {
 	void checkNeighbors(int x, int y);
 	bool hitWumpus();
 	void missWumpus();
+	void shootOutOfBounds();
 public:
 	Player(Board * board);
 	bool move(char direction);

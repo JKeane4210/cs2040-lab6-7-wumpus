@@ -36,6 +36,10 @@ void invalidAction(){
 	cout << "Invalid action!" << endl;
 }
 
+void invalidShootingDirection(){
+	cout << "Invalid direction for shot!" << endl;
+}
+
 char getAction(){
 	bool flag = true;
 	string input;
@@ -68,10 +72,25 @@ bool performAction(char action, Player *player){
 		ret = player->move(action);
 	} else if(action == 'a'){
 		if (player->getArrows() != 0){
+			string input;
 			char direction;
 			cout << "Which direciton you shootin' dawg? ";
-			cin >> direction;
-			ret = player->shoot(direction);
+			try{
+				cin >> input;
+				if (input.length() == 1){
+					direction = input[0];
+					direction = tolower(direction);
+					if (direction == 'n' || direction == 'e' || direction == 's' || direction == 'w'){
+						ret = player->shoot(direction);
+					} else{
+						invalidShootingDirection();
+					}
+				} else{
+					invalidShootingDirection();
+				}
+			} catch (const exception& e){
+				invalidShootingDirection();
+			}
 		} else{
 			cout << "Out of arrows!";
 		}

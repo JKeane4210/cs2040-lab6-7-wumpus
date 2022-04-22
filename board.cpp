@@ -92,3 +92,11 @@ Player* Board::getPlayer(){
 Cell* Board::getCell(int h, int w) {
 	return h < HEIGHT && h >= 0 && w >= 0 && w < WIDTH ? this->grid[h][w] : nullptr;
 }
+
+int Board::getBoardHeight(){
+	return HEIGHT;
+}
+
+int Board::getBoardWidth(){
+	return WIDTH;
+}
