@@ -5,7 +5,6 @@
 #include <string>
 #include <iostream>
 
-// default constructor for Player
 Player::Player(Board * board) {
 	// set x and y position from board
 	isDead = false;
@@ -13,12 +12,10 @@ Player::Player(Board * board) {
 	arrows = STARTING_ARROWS;
 }
 
-// get current number of arrows
 int Player::getArrows(){
 	return arrows;
 }
 
-// moves player in specific direction
 bool Player::move(char direction) {
 	char move = tolower(direction);
 	bool ret = true;
@@ -50,12 +47,10 @@ bool Player::move(char direction) {
 	return ret;
 }
 
-// if player attempts to move out of bounds, notify them
 void Player::moveOutOfBounds(){
 	std::cout << "You cannot move off the board." << std::endl;
 }
 
-// sets the new location of the player
 bool Player::setLocation(int x, int y) {
 	board->getCell(this->x, this->y)->leavePlayer();
 	this->x = x;
@@ -68,7 +63,6 @@ bool Player::setLocation(int x, int y) {
 	return ret;
 }
 
-// shoots an arrow in a given direction
 bool Player::shoot(char direction) {
 	bool ret = true;
 	arrows -= 1;
@@ -116,23 +110,19 @@ bool Player::shoot(char direction) {
 	return ret;
 }
 
-// notify user if the Wumpus was hit
 bool Player::hitWumpus(){
 	std::cout << "You got the Wumpus!" << std::endl;
 	return false;
 }
 
-// notify user if the Wumpus was not hit
 void Player::missWumpus(){
 	std::cout << "You missed!" << std::endl;
 }
 
-// notify user if shot is out of bounds
 void Player::shootOutOfBounds(){
 	std::cout << "You shot out of bounds" << std::endl;
 }
 
-// check to see if current postion is legal and if it is occupied
 bool Player::checkCurrentPosition(int x, int y) {
 	Cell *currentPCell = board->getCell(x, y);
 	bool ret = true;
@@ -149,7 +139,6 @@ bool Player::checkCurrentPosition(int x, int y) {
 	return ret;
 }
 
-// checks neighbors to see if hazards are nearby
 void Player::checkNeighbors(int x, int y){
 	for (int delta_x = -1; delta_x <= 1; ++delta_x) {
 		for (int delta_y = -1; delta_y <= 1; ++delta_y) {

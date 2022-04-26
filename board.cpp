@@ -11,8 +11,6 @@
 
 using namespace std;
 
-// g++ bats.cpp bats.h board.cpp board.h cell.cpp cell.h hazard.cpp hazard.h main.cpp pit.cpp pit.h player.cpp player.h wumpus.cpp wumpus.h
-
 // Creates an instance of board
 Board::Board() {
 	for(int i = 0; i < HEIGHT; i++){
@@ -31,7 +29,7 @@ Board::~Board() {
 	}
 }
 
-// Populates the board
+// Populates the board with player, arrows, and hazards
 void Board::createBoard() {
 	srand(time(NULL));
 	int h = rand()%HEIGHT;
@@ -73,6 +71,7 @@ void Board::createBoard() {
 	this->player->setLocation(h, w);
 }
 
+// Displays the debugging board to the screen
 void Board::displayBoard() {
 	for(int i = 0; i < HEIGHT; i++){
 		for(int k = 0; k < WIDTH; k++){
@@ -85,6 +84,7 @@ void Board::displayBoard() {
 	}
 }
 
+// Displays an empty map with just the player to the screen
 void Board::displayPlayer() {
 	for(int i = 0; i < HEIGHT; i++){
 		for(int k = 0; k < WIDTH; k++){
@@ -105,18 +105,22 @@ void Board::displayPlayer() {
 	}
 }
 
+// Gets the player
 Player* Board::getPlayer(){
 	return this->player;
 }
 
+// Gets a specific cell from the board
 Cell* Board::getCell(int h, int w) {
 	return h < HEIGHT && h >= 0 && w >= 0 && w < WIDTH ? this->grid[h][w] : nullptr;
 }
 
+// Gets the height of the board
 int Board::getBoardHeight(){
 	return HEIGHT;
 }
 
+// Gets the width of the board
 int Board::getBoardWidth(){
 	return WIDTH;
 }
