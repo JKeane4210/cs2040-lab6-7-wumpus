@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// notify user of commands
 string how_to_play() {
 	return "How to Play:\n"
 		   "\tCommands:\n"
@@ -28,18 +29,22 @@ string how_to_play() {
 		   "\t\t- ! = monster\n";
 }
 
+// intro message to game
 void intro(){
 	cout << "Welcome to Wumpus Hunt. Find us a Wumpus!" << endl;
 }
 
+// notify of invalid action
 void invalidAction(){
 	cout << "Invalid action!" << endl;
 }
 
+// notify of invalid shooting direction
 void invalidShootingDirection(){
 	cout << "Invalid direction for shot!" << endl;
 }
 
+// get the type of action from user
 char getAction(){
 	bool flag = true;
 	string input;
@@ -67,6 +72,7 @@ char getAction(){
 	return action;
 }
 
+// perform the given action from the user
 bool performAction(char action, Player *player, Board &board){
 	bool ret = true;
 	if (action == 'n' || action == 's' || action == 'e' || action == 'w'){
@@ -105,6 +111,7 @@ bool performAction(char action, Player *player, Board &board){
 	return ret;
 }
 
+// runs Wumpus Hunt
 int main() {
 	Board board = Board();
 	board.createBoard();
