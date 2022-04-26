@@ -100,7 +100,7 @@ bool performAction(char action, Player *player, Board &board){
 				invalidShootingDirection();
 			}
 		} else{
-			cout << "Out of arrows!";
+			cout << "Out of arrows!" << endl;
 		}
 	} else if (action == 'h'){
 		cout << how_to_play() << endl;
