@@ -69,6 +69,7 @@ char getAction(){
 			invalidAction();
 		}
 	}
+	cout << endl;
 	return action;
 }
 
@@ -113,11 +114,11 @@ bool performAction(char action, Player *player, Board &board){
 
 // runs Wumpus Hunt
 int main() {
+	intro();
 	Board board = Board();
 	board.createBoard();
 	Player *player = board.getPlayer();
 	board.displayPlayer();
-	intro();
 	bool flag = true;
 	bool debug = false;
 	while (flag){
