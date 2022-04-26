@@ -15,6 +15,8 @@ class Cell {
 public:
 	// Creates a new cell object
 	Cell(Board * b, int x, int y);
+	// Deconstructor for cell
+	~Cell();
 	// Puts the player into the cell
 	void insertPlayer(Player * p);
 	// Puts a hazard into the cell

@@ -14,6 +14,12 @@ Cell::Cell(Board * b, int x, int y) : x{x}, y{y} {
 	this->token = '.';
 }
 
+// Deconstructs the cell
+Cell::~Cell(){
+	delete player;
+	delete hazard;
+}
+
 // Puts the player into the cell
 void Cell::insertPlayer(Player * p){
 	this->hasPlayer = true;
