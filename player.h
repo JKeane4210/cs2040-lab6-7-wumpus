@@ -3,6 +3,7 @@
 
 class Board;
 
+// Player to hunt the Wumpus
 class Player {
 	static constexpr int STARTING_ARROWS = 5;
 	int x, y;
