@@ -5,7 +5,7 @@
 Wumpus::Wumpus(Board * board, int x, int y) : Hazard(board, x, y) {}
 
 bool Wumpus::attack(Player * player) {
-	std::cout << "You were eaten by a wumpus" << std::endl;
+	std::cout << "You were eaten by a wumpus." << std::endl;
 	return false;
 }
 
@@ -14,5 +14,5 @@ char Wumpus::display() {
 }
 
 std::string Wumpus::message() {
-	return "You can smell the wumpus";
+	return "You can smell the wumpus.";
 }

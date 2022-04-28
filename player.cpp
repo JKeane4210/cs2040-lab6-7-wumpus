@@ -116,11 +116,11 @@ bool Player::hitWumpus(){
 }
 
 void Player::missWumpus(){
-	std::cout << "You missed!" << std::endl;
+	std::cout << "You missed! (Total Arrows: " << arrows << ")." << std::endl;
 }
 
 void Player::shootOutOfBounds(){
-	std::cout << "You shot out of bounds" << std::endl;
+	std::cout << "You shot out of bounds (Total Arrows: " << arrows << ")." << std::endl;
 }
 
 bool Player::checkCurrentPosition(int x, int y) {
@@ -130,7 +130,7 @@ bool Player::checkCurrentPosition(int x, int y) {
 		if (currentPCell->containsArrow()) {
 			currentPCell->grabArrow();
 			arrows++;
-			std::cout << "You picked up an arrow" << std::endl;
+			std::cout << "You picked up an arrow (Total Arrows: " << arrows << ")." << std::endl;
 		} else {
 			Hazard * hazard = currentPCell->getHazard();
 			ret = hazard->attack(this);

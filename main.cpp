@@ -9,6 +9,8 @@ using namespace std;
 // notify user of commands
 string how_to_play() {
 	return "How to Play:\n"
+			"Player starts with 5 arrows. Your goal is to navigate the map to find\n"
+			"and kill the wumpus without falling down pits or getting eaten by the wumpus.\n"
 		   "\tCommands:\n"
 		   "\t\t- n/N = move north/up\n"
 		   "\t\t- e/E = move east/right\n" 
@@ -25,8 +27,14 @@ string how_to_play() {
 		   "\t\t- P = player\n" 
 		   "\t\t- B = bats\n"
 		   "\t\t- @ = pit\n" 
-		   "\t\t- ? = treasure\n" 
-		   "\t\t- ! = monster\n";
+		   "\t\t- ! = monster\n"
+		   "\tMessages:\n"
+		   "\t\t- \"You can smell the wumpus.\": A wumpus is close.\n"
+		   "\t\t- \"You can hear flapping.\": Bats are close by.\n"
+		   "\t\t- \"You feel a breeze.\": A pit is close by.\n"
+		   "\t\t- \"You were eaten by a wumpus.\": You died to a wumpus. Game over.\n"
+		   "\t\t- \"You were carried away by bats.\": Bats carries you to an unknown location on the map.\n"
+		   "\t\t- \"You fell down a pit. The wumpus comes to eat you.\": You fall down a pit. Game over.\n";
 }
 
 // intro message to game
@@ -82,7 +90,7 @@ bool performAction(char action, Player *player, Board &board){
 		if (player->getArrows() != 0){
 			string input;
 			char direction;
-			cout << "Which direciton you shootin' dawg? ";
+			cout << "Which direction would you like to shoot? ";
 			try{
 				cin >> input;
 				if (input.length() == 1){
