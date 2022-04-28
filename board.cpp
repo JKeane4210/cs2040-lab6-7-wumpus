@@ -65,7 +65,7 @@ void Board::createBoard() {
 	while(flag){
 		h = rand()%HEIGHT;
 		w = rand()%WIDTH;
-		if((h != 0 && w != 0) || (h != 0 && w != WIDTH - 1) || (h != HEIGHT - 1 && w != 0) || (h != HEIGHT - 1 && w != WIDTH - 1) && !this->grid[h][w]->isOccupied()){
+		if(!((h == 0 && w == 0) || (h == 0 && w == WIDTH - 1) || (h == HEIGHT - 1 && w == 0) || (h == HEIGHT - 1 && w == WIDTH - 1)) && !this->grid[h][w]->isOccupied()){
 			flag = false;
 		}
 	}
